@@ -22,6 +22,44 @@ const Board = () => {
         return false;
     };
 
+    const checkVictory = (row, col) => {
+        const currentPlayer = isBlackNext ? 1 : -1; // 1 black, -1 white
+
+        const directions = [
+            { dr: 0, dc: 1 }, // row check
+            { dr: 1, dc: 0 }, // column check
+            { dr: 1, dc: 1 }, // diagonal
+            { dr: 1, dc: -1 } // opposite diagonal
+        ];
+
+        for (const { dr, dc } of directions) {
+            let count = 1; // the new piece
+
+            for (let step = 1; step < 5; step++) {
+                const r = row + dr * step;
+                const c = col + dc * step;
+                if (r < 0 || r > 14 || c < 0 || c > 14 || board[r][c] !== currentPlayer) {
+                    break;
+                }
+                count++;
+            }
+
+            for (let step = 1; step < 5; step++) {
+                const r = row - dr * step;
+                const c = col - dc * step;
+                if (r < 0 || r > 14 || c < 0 || c > 14 || board[r][c] !== currentPlayer) {
+                    break;
+                }
+                count++;
+            }
+
+            if (count >= 5) {
+                alert(`${currentPlayer === 1 ? 'Black' : 'White'} has won !`);
+                return true;
+            }
+        }
+        return false;
+    };
 
     const handleClick = (row, col) => {
         if (board[row][col] !== 0) return;
