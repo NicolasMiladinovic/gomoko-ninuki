@@ -139,7 +139,7 @@ const Board = () => {
                 count++;
             }
 
-            if (count >= 5) {
+            if (count >= 5 || blackCaptured >= 10 || whiteCaptured >= 10) {
                 alert(`${currentPlayer === 1 ? 'Black' : 'White'} has won !`);
                 return true;
             }
