@@ -1,8 +1,11 @@
 import React from 'react';
 
-const Piece = ({ value, onClick }) => {
+const Piece = ({ value, onClick, disabled }) => {
     return (
-        <div className="piece-container" onClick={onClick}>
+        <div 
+            className={`piece-container ${disabled ? 'disabled' : ''}`} 
+            onClick={disabled ? undefined : onClick}
+        >
             <div className='piece'>
                 {!value ? null :
                     value === 1 ?

@@ -1,5 +1,64 @@
-.app {
-  margin: 10%;
+.App {
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.connection-screen {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.join-game {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 200px;
+}
+
+.error-message {
+  color: #ff0000;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #ffe6e6;
+  border-radius: 5px;
 }
 
 .board {
@@ -30,6 +89,15 @@
 
 .piece-container:hover {
   background-color: #f0f0f0;
+}
+
+.piece-container.disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.piece-container.disabled:hover {
+  background-color: transparent;
 }
 
 .piece {}
@@ -68,4 +136,22 @@
   background-color: black;
   /* player color */
   color: #f0f0f0;
+}
+
+.game-board {
+  margin: 20px auto;
+  max-width: 600px;
+}
+
+.game-info {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.game-info p {
+  margin: 5px 0;
+  color: #333;
 }
